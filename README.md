@@ -33,11 +33,11 @@
 
 Вариант с чистым JavaScript будет выглядеть так: 
 
-	window.addEventListener('DOMContentLoaded', function() {
+	window.addEventListener('DOMContentLoaded', function () {
 
-		const btn = document.querySelector('#btn');
+	  const btn = document.querySelector('#btn');
 
-		console.log(btn);
+	  console.log(btn);
 
 	});
 	
@@ -57,15 +57,15 @@
 
 	window.addEventListener('DOMContentLoaded', function () {
 
-		const buttons = document.querySelectorAll('.list-item');
+	  const buttons = document.querySelectorAll('.list-item');
 
-		buttons[0].addEventListener('mouseenter', () => {
-		buttons[0].classList.toggle('active');
-		});
+	  buttons[0].addEventListener('mouseenter', () => {
+	    buttons[0].classList.toggle('active');
+	  });
 
-		buttons[0].addEventListener('mouseout', () => {
-		buttons[0].classList.toggle('active');
-		});
+	  buttons[0].addEventListener('mouseout', () => {
+	    buttons[0].classList.toggle('active');
+	  });
 
 	});
 
@@ -73,31 +73,24 @@
 
 	$(document).ready(function () {
 	  $('.list-item:eq(2)').on('click', function () {
-		$('.image:even').fadeToggle('slow');
+	    $('.image:even').fadeToggle('slow');
 	  });
 	});
 	
 Вариант с чистым JavaScript будет выглядеть так: 
 
-	window.addEventListener('DOMContentLoaded', function () {
+window.addEventListener('DOMContentLoaded', function () {
 
-	  const buttons = document.querySelectorAll('.list-item'),
-	    images = document.querySelectorAll('img');
+  const buttons = document.querySelectorAll('.list-item'),
+        images = document.querySelectorAll('img');
 
-	  buttons[2].addEventListener('click', () => {
-	    for (let i = 0; i < images.length; i++) {
-
-	      const oddImg = images[i];
-
-	      if (i % 2 == 0) {
-		oddImg.classList.toggle('display-none');
-	      }
-
-	    }
-
-	  })
-
-	});
+  buttons[2].addEventListener('click', () => {
+    for (let i = 0; i < images.length; i++) {
+      const oddImg = images[i];
+      if (i % 2 == 0) oddImg.classList.toggle('display-none');
+    }
+  });
+});
 
 Отредактируем функцию выше на такую: всё также выбираем определенный элемент страницы, при клике будем запускать свою анимацию, которая будет тоглить высоту и прозрачность четной фотографии
 
