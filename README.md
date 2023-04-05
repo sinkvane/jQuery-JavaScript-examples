@@ -2,68 +2,77 @@
 
 Ниже я представил сравнение библиотеки jQuery и JavaScript в маленьких участках кода.
 
+Основным ресурсом для изучения jQuery может быть [этот ресурс](https://page2page.lohmach.info/index.php5/%D0%97%D0%B0%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0.html).
+
 ## Для начала установим jQuery через npm:
 
-	npm jquery --save
+`npm jquery --save`
 
 Не забудем сделать import в основной файл script.js:
 
-	import $ from 'jquery';
+`import $ from 'jquery'`
 
 Появляется вопрос: что почему в импорте мы прописываем знак $?
 
-Мы указываем знак $ т.к. в самой библиотеке jQuery знак $ ялвяется функцией. При использовании библиотеки без неё не обойтись. Импортируем её. 
+Мы указываем знак $ т.к. в самой библиотеке jQuery знак $ ялвяется функцией. При использовании библиотеки без неё не обойтись.
 
-Основным ресурсом для изучения jQuery может быть page2page.lohmach.info/index.php5
+## Начнём работу
+
 
 Удостоверимся, что наша DOM структура уже сформирована и готова к работе. В jQuery это выглядит так:
 
-$(document).ready(function () {
- 
-  const btn = $('#btn');
+	$(document).ready(function () {
 
-  console.log(btn);
+		const btn = $('#btn');
 
-});
+		console.log(btn);
+
+	});
 
 Где в первой строчке, мы обращаемся к document, используем метод ready (чтобы проверить, что наш document готов), после чего мы будем запускать callback функцию, где будет весь наш функционал.
 
-Вариант с чистым JavaScript: 
+Вариант с чистым JavaScript будет выглядеть так: 
+
+	window.addEventListener('DOMContentLoaded', function() {
+
+		const btn = document.querySelector('#btn');
+
+		console.log(btn);
+
+	});
+	
+Заодно увидели, как можно получить элемент страницы с помощью jQuery и JS.
+
+Пойдем дальше: сделаем смену класса при наведении на элемент с помощью jQuery:
+
+	$(document).ready(function () {
+
+	  $('.list-item:first').hover(function () {
+		$(this).toggleClass('active');
+	  });
+
+	});
 
 
-$(document).ready(function () {
+Сделаем следующее: выберем определенную кнопку на странице и при клике скроем нечетное изображение
 
-  const btn = $('#btn');
+	$(document).ready(function () {
+	  $('.list-item:eq(2)').on('click', function () {
+		$('.image:even').fadeToggle('slow');
+	  });
+	});
+	
+Вариант с чистым JavaScript будет выглядеть так: 
 
-  console.log(btn);
+Отредактируем функцию выше на такую: всё также выбираем определенный элемент страницы, при клике будем запускать свою анимацию, которая будет тоглить высоту и прозрачность четной фотографии
 
-});
-
-
-
-`$(document).ready(function () {
-
-  $('.list-item:first').hover(function () {
-    $(this).toggleClass('active');
-  });
-
-});`
-
-
-
-$(document).ready(function () {
-  $('.list-item:eq(2)').on('click', function () {
-    $('.image:even').fadeToggle('slow');
-  });
-});
-
-
-
-$(document).ready(function () {
-  $('.list-item:eq(4)').on('click', function () {
-    $('.image:odd').animate({
-      opacity: 'toggle',
-      height: 'toggle'
-    }, 1000);
-  });
-});
+	$(document).ready(function () {
+	  $('.list-item:eq(4)').on('click', function () {
+		$('.image:odd').animate({
+		  opacity: 'toggle',
+		  height: 'toggle'
+		}, 1000);
+	  });
+	});
+	
+Вариант с чистым JavaScript будет выглядеть так: 
