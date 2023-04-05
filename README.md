@@ -52,7 +52,22 @@
 	  });
 
 	});
+	
+Вариант с чистым JavaScript будет выглядеть так: 
 
+	window.addEventListener('DOMContentLoaded', function () {
+
+		const buttons = document.querySelectorAll('.list-item');
+
+		buttons[0].addEventListener('mouseenter', () => {
+		buttons[0].classList.toggle('active');
+		});
+
+		buttons[0].addEventListener('mouseout', () => {
+		buttons[0].classList.toggle('active');
+		});
+
+	});
 
 Сделаем следующее: выберем определенную кнопку на странице и при клике скроем нечетное изображение
 
