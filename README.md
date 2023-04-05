@@ -79,6 +79,26 @@
 	
 Вариант с чистым JavaScript будет выглядеть так: 
 
+	window.addEventListener('DOMContentLoaded', function () {
+
+	  const buttons = document.querySelectorAll('.list-item'),
+	    images = document.querySelectorAll('img');
+
+	  buttons[2].addEventListener('click', () => {
+	    for (let i = 0; i < images.length; i++) {
+
+	      const oddImg = images[i];
+
+	      if (i % 2 == 0) {
+		oddImg.classList.toggle('display-none');
+	      }
+
+	    }
+
+	  })
+
+	});
+
 Отредактируем функцию выше на такую: всё также выбираем определенный элемент страницы, при клике будем запускать свою анимацию, которая будет тоглить высоту и прозрачность четной фотографии
 
 	$(document).ready(function () {
