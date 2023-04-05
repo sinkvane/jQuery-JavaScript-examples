@@ -4,7 +4,9 @@
 
 Основным ресурсом для изучения jQuery может быть [этот ресурс](https://page2page.lohmach.info/index.php5/%D0%97%D0%B0%D0%B3%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F_%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D0%B0.html).
 
-## Для начала установим jQuery через npm:
+Я же изучаю JavaScript в одном курсе с [Udemy](https://www.udemy.com/course/javascript_full/).
+
+## Для начала установим jQuery через npm
 
 `npm jquery --save`
 
